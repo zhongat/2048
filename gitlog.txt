@@ -1,0 +1,2192 @@
+commit f0d89b69a267a8d2173c6d0e5f6941e0154d6029
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Wed Dec 6 21:16:57 2017 -0500
+
+    Restore
+
+ ai.ml | 68 +------------------------------------------------------------------
+ 1 file changed, 1 insertion(+), 67 deletions(-)
+
+commit f806b9c55af672d295e6189d0e39bfa67e7cee22
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Wed Dec 6 21:15:05 2017 -0500
+
+    Cleaned
+
+ _build/_digests                              |  35 --
+ _build/_log                                  |  44 ---
+ _build/ai.cmi                                | Bin 437 -> 0 bytes
+ _build/ai.cmo                                | Bin 4661 -> 0 bytes
+ _build/ai.ml                                 | 363 ------------------
+ _build/ai.ml.depends                         |   1 -
+ _build/ai.mli                                |   8 -
+ _build/ai.mli.depends                        |   1 -
+ _build/board.cmi                             | Bin 425 -> 0 bytes
+ _build/board.cmo                             | Bin 2983 -> 0 bytes
+ _build/board.ml                              | 124 ------
+ _build/board.ml.depends                      |   1 -
+ _build/board.mli                             |   9 -
+ _build/board.mli.depends                     |   1 -
+ _build/command.cmi                           | Bin 409 -> 0 bytes
+ _build/command.cmo                           | Bin 509 -> 0 bytes
+ _build/command.ml                            |  18 -
+ _build/command.ml.depends                    |   1 -
+ _build/command.mli                           |  11 -
+ _build/command.mli.depends                   |   1 -
+ _build/main.byte                             | Bin 249347 -> 0 bytes
+ _build/main.cmi                              | Bin 434 -> 0 bytes
+ _build/main.cmo                              | Bin 9835 -> 0 bytes
+ _build/main.ml                               | 284 --------------
+ _build/main.ml.depends                       |   1 -
+ _build/main.mli                              |  13 -
+ _build/main.mli.depends                      |   1 -
+ _build/oUnit-Test suite-vm3110-2017fa#00.log | 551 ---------------------------
+ _build/oUnit-Test suite-vm3110-2017fa#01.log | 192 ----------
+ _build/oUnit-Test suite.cache                | Bin 2304 -> 0 bytes
+ _build/ocamlc.where                          |   1 -
+ _build/state.cmi                             | Bin 938 -> 0 bytes
+ _build/state.cmo                             | Bin 6788 -> 0 bytes
+ _build/state.ml                              | 262 -------------
+ _build/state.ml.depends                      |   1 -
+ _build/state.mli                             |  54 ---
+ _build/state.mli.depends                     |   1 -
+ _build/state_test.byte                       | Bin 438250 -> 0 bytes
+ _build/state_test.cmi                        | Bin 2248 -> 0 bytes
+ _build/state_test.cmo                        | Bin 17015 -> 0 bytes
+ _build/state_test.ml                         | 179 ---------
+ _build/state_test.ml.depends                 |   1 -
+ main.byte                                    |   1 -
+ state_test.byte                              |   1 -
+ 44 files changed, 2161 deletions(-)
+
+commit a90a8d73b4231c12b74f90c34f22fc3dee5ee1f5
+Merge: 98e0855 7d1b642
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 21:01:32 2017 -0500
+
+    Fixed merge conflict
+
+commit 98e0855d43525c55fcb725f268b1d3bf91ce2edc
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 21:00:42 2017 -0500
+
+    Removed some of ai helpers
+
+ _build/_digests            |  31 -----
+ _build/_log                |  44 -------
+ _build/ai.cmi              | Bin 510 -> 0 bytes
+ _build/ai.cmo              | Bin 4067 -> 0 bytes
+ _build/ai.ml               | 151 -----------------------
+ _build/ai.ml.depends       |   1 -
+ _build/ai.mli              |  17 ---
+ _build/ai.mli.depends      |   1 -
+ _build/board.cmi           | Bin 425 -> 0 bytes
+ _build/board.cmo           | Bin 2983 -> 0 bytes
+ _build/board.ml            | 124 -------------------
+ _build/board.ml.depends    |   1 -
+ _build/board.mli           |   9 --
+ _build/board.mli.depends   |   1 -
+ _build/command.cmi         | Bin 409 -> 0 bytes
+ _build/command.cmo         | Bin 509 -> 0 bytes
+ _build/command.ml          |  18 ---
+ _build/command.ml.depends  |   1 -
+ _build/command.mli         |  11 --
+ _build/command.mli.depends |   1 -
+ _build/main.byte           | Bin 249034 -> 0 bytes
+ _build/main.cmi            | Bin 434 -> 0 bytes
+ _build/main.cmo            | Bin 10089 -> 0 bytes
+ _build/main.ml             | 289 ---------------------------------------------
+ _build/main.ml.depends     |   1 -
+ _build/main.mli            |  13 --
+ _build/main.mli.depends    |   1 -
+ _build/ocamlc.where        |   1 -
+ _build/state.cmi           | Bin 763 -> 0 bytes
+ _build/state.cmo           | Bin 6780 -> 0 bytes
+ _build/state.ml            | 263 -----------------------------------------
+ _build/state.ml.depends    |   1 -
+ _build/state.mli           |  45 -------
+ _build/state.mli.depends   |   1 -
+ main.byte                  |   1 -
+ 35 files changed, 1027 deletions(-)
+
+commit 03c740aeeebe0eca8ed55af3ec6107636564acce
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 21:00:36 2017 -0500
+
+    Removed some of ai helpers
+
+ _build/_digests            |  31 +++++
+ _build/_log                |  44 +++++++
+ _build/ai.cmi              | Bin 0 -> 510 bytes
+ _build/ai.cmo              | Bin 0 -> 4067 bytes
+ _build/ai.ml               | 151 +++++++++++++++++++++++
+ _build/ai.ml.depends       |   1 +
+ _build/ai.mli              |  17 +++
+ _build/ai.mli.depends      |   1 +
+ _build/board.cmi           | Bin 0 -> 425 bytes
+ _build/board.cmo           | Bin 0 -> 2983 bytes
+ _build/board.ml            | 124 +++++++++++++++++++
+ _build/board.ml.depends    |   1 +
+ _build/board.mli           |   9 ++
+ _build/board.mli.depends   |   1 +
+ _build/command.cmi         | Bin 0 -> 409 bytes
+ _build/command.cmo         | Bin 0 -> 509 bytes
+ _build/command.ml          |  18 +++
+ _build/command.ml.depends  |   1 +
+ _build/command.mli         |  11 ++
+ _build/command.mli.depends |   1 +
+ _build/main.byte           | Bin 0 -> 249034 bytes
+ _build/main.cmi            | Bin 0 -> 434 bytes
+ _build/main.cmo            | Bin 0 -> 10089 bytes
+ _build/main.ml             | 289 +++++++++++++++++++++++++++++++++++++++++++++
+ _build/main.ml.depends     |   1 +
+ _build/main.mli            |  13 ++
+ _build/main.mli.depends    |   1 +
+ _build/ocamlc.where        |   1 +
+ _build/state.cmi           | Bin 0 -> 763 bytes
+ _build/state.cmo           | Bin 0 -> 6780 bytes
+ _build/state.ml            | 263 +++++++++++++++++++++++++++++++++++++++++
+ _build/state.ml.depends    |   1 +
+ _build/state.mli           |  45 +++++++
+ _build/state.mli.depends   |   1 +
+ ai.ml                      |  62 ----------
+ main.byte                  |   1 +
+ 36 files changed, 1027 insertions(+), 62 deletions(-)
+
+commit 7d1b64202f7383c3aff93e725cf19ce993de28ee
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Wed Dec 6 20:34:21 2017 -0500
+
+    Editing comments
+
+ _build/_digests                              |  35 ++
+ _build/_log                                  |  44 +++
+ _build/ai.cmi                                | Bin 0 -> 437 bytes
+ _build/ai.cmo                                | Bin 0 -> 4661 bytes
+ _build/ai.ml                                 | 363 ++++++++++++++++++
+ _build/ai.ml.depends                         |   1 +
+ _build/ai.mli                                |   8 +
+ _build/ai.mli.depends                        |   1 +
+ _build/board.cmi                             | Bin 0 -> 425 bytes
+ _build/board.cmo                             | Bin 0 -> 2983 bytes
+ _build/board.ml                              | 124 ++++++
+ _build/board.ml.depends                      |   1 +
+ _build/board.mli                             |   9 +
+ _build/board.mli.depends                     |   1 +
+ _build/command.cmi                           | Bin 0 -> 409 bytes
+ _build/command.cmo                           | Bin 0 -> 509 bytes
+ _build/command.ml                            |  18 +
+ _build/command.ml.depends                    |   1 +
+ _build/command.mli                           |  11 +
+ _build/command.mli.depends                   |   1 +
+ _build/main.byte                             | Bin 0 -> 249347 bytes
+ _build/main.cmi                              | Bin 0 -> 434 bytes
+ _build/main.cmo                              | Bin 0 -> 9835 bytes
+ _build/main.ml                               | 284 ++++++++++++++
+ _build/main.ml.depends                       |   1 +
+ _build/main.mli                              |  13 +
+ _build/main.mli.depends                      |   1 +
+ _build/oUnit-Test suite-vm3110-2017fa#00.log | 551 +++++++++++++++++++++++++++
+ _build/oUnit-Test suite-vm3110-2017fa#01.log | 192 ++++++++++
+ _build/oUnit-Test suite.cache                | Bin 0 -> 2304 bytes
+ _build/ocamlc.where                          |   1 +
+ _build/state.cmi                             | Bin 0 -> 938 bytes
+ _build/state.cmo                             | Bin 0 -> 6788 bytes
+ _build/state.ml                              | 262 +++++++++++++
+ _build/state.ml.depends                      |   1 +
+ _build/state.mli                             |  54 +++
+ _build/state.mli.depends                     |   1 +
+ _build/state_test.byte                       | Bin 0 -> 438250 bytes
+ _build/state_test.cmi                        | Bin 0 -> 2248 bytes
+ _build/state_test.cmo                        | Bin 0 -> 17015 bytes
+ _build/state_test.ml                         | 179 +++++++++
+ _build/state_test.ml.depends                 |   1 +
+ command.mli                                  |   2 +-
+ main.byte                                    |   1 +
+ state.ml                                     |   4 +-
+ state.mli                                    |  21 +-
+ state_test.byte                              |   1 +
+ 47 files changed, 2171 insertions(+), 17 deletions(-)
+
+commit 1ab0ea97fdb50fad8dbcd05c1d8604d4da47a1f2
+Author: Amy Zhong <az287@cornell.edu>
+Date:   Wed Dec 6 19:45:55 2017 -0500
+
+    Update README.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 95a6c9796de4597a5f13e4371290002a0dff1273
+Author: Amy Zhong <az287@cornell.edu>
+Date:   Wed Dec 6 19:45:36 2017 -0500
+
+    Update README.md
+
+ README.md | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit ef9a7fe60a0f523cbf91c61fe489e8df24f90183
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Wed Dec 6 18:37:08 2017 -0500
+
+    Cleaned up code
+
+ ai.ml   |  15 ++++--
+ ai.mli  |   8 ---
+ main.ml | 188 +++++++++++++++++++++++++++++++++++-----------------------------
+ 3 files changed, 112 insertions(+), 99 deletions(-)
+
+commit cd5bc915da0a7e5d9eee15c8226614a495609587
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 18:10:22 2017 -0500
+
+    Fixed merge conflict
+
+ board.ml | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit fcfd7146f61fa48bfae9eeb10cedf256b75cfbc9
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 18:09:00 2017 -0500
+
+    Fixed merge conflict
+
+ board.ml | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+commit 50ba1a1e8509c10c5b0d33527f4ded4b092cfd47
+Merge: fda7fba f0f5033
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 18:06:10 2017 -0500
+
+    Fixed merge conflict
+
+commit fda7fbac7a370cb003bd5e57feacf8cee7de4c6c
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 18:05:02 2017 -0500
+
+    Added comments to ai files and edited get_score and expectimax_helper
+
+ ai.ml    | 250 +++++----------------------------------------------------------
+ ai.mli   |  13 +++-
+ board.ml |  20 ++---
+ 3 files changed, 41 insertions(+), 242 deletions(-)
+
+commit f0f5033f77644ac65168d93d5faa285e03adda3a
+Merge: 988e3a0 4451a01
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Wed Dec 6 17:58:28 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit 988e3a0548c7c7b796d2f88fe46ed8f102a82243
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Wed Dec 6 17:57:19 2017 -0500
+
+    Cleaned up code/comments
+
+ ai.ml         | 205 ----------------------------------------------------------
+ state.ml      |  17 ++---
+ state.mli     |   9 ---
+ state_test.ml |   8 ---
+ 4 files changed, 9 insertions(+), 230 deletions(-)
+
+commit 4451a01bd2fa851608601361acd9dbb2f6a7b29d
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2683.eduroam.cornell.edu>
+Date:   Wed Dec 6 17:42:37 2017 -0500
+
+    added score to ai
+
+ main.ml | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 1af34322b9c79a7b7160dd8b3f4468cc2f280009
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Wed Dec 6 17:24:37 2017 -0500
+
+    finished testing
+
+ state_test.ml | 72 ++++++++++++++++++++++++++++++++++++++++++-----------------
+ 1 file changed, 51 insertions(+), 21 deletions(-)
+
+commit f8513819fef8ef7829fbac86aa185e37fb91324b
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Wed Dec 6 16:40:31 2017 -0500
+
+    Fixed issues.
+
+ state.ml      |  2 +-
+ state_test.ml | 15 ++++++++-------
+ 2 files changed, 9 insertions(+), 8 deletions(-)
+
+commit b9222fbe7eb092cf95539972a20b21a8022e312b
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Wed Dec 6 16:18:23 2017 -0500
+
+    Not Comiling
+
+ _build/_digests                              |  22 --
+ _build/_log                                  |  28 --
+ _build/board.cmi                             | Bin 425 -> 0 bytes
+ _build/board.cmo                             | Bin 2983 -> 0 bytes
+ _build/board.ml                              | 105 -------
+ _build/board.ml.depends                      |   1 -
+ _build/board.mli                             |   9 -
+ _build/board.mli.depends                     |   1 -
+ _build/command.cmi                           | Bin 502 -> 0 bytes
+ _build/command.cmo                           | Bin 525 -> 0 bytes
+ _build/command.ml                            |  24 --
+ _build/command.ml.depends                    |   1 -
+ _build/command.mli                           |  16 --
+ _build/command.mli.depends                   |   1 -
+ _build/oUnit-Test suite-vm3110-2017fa#00.log | 399 ---------------------------
+ _build/oUnit-Test suite-vm3110-2017fa#01.log | 135 ---------
+ _build/oUnit-Test suite.cache                | Bin 1658 -> 0 bytes
+ _build/ocamlc.where                          |   1 -
+ _build/state.cmi                             | Bin 963 -> 0 bytes
+ _build/state.cmo                             | Bin 6801 -> 0 bytes
+ _build/state.ml                              | 261 ------------------
+ _build/state.ml.depends                      |   1 -
+ _build/state.mli                             |  54 ----
+ _build/state.mli.depends                     |   1 -
+ _build/state_test.byte                       | Bin 434714 -> 0 bytes
+ _build/state_test.ml                         | 142 ----------
+ _build/state_test.ml.depends                 |   1 -
+ state.ml                                     |   3 +-
+ state.mli                                    |   4 +-
+ state_test.byte                              |   1 -
+ state_test.ml                                |  12 +-
+ 31 files changed, 9 insertions(+), 1214 deletions(-)
+
+commit 8adb95be6b62725ceb9e7576616da8920cafe929
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Wed Dec 6 16:01:27 2017 -0500
+
+    Changed count_zeros and fixing tests
+
+ _build/_digests                              |  22 ++
+ _build/_log                                  |  28 ++
+ _build/board.cmi                             | Bin 0 -> 425 bytes
+ _build/board.cmo                             | Bin 0 -> 2983 bytes
+ _build/board.ml                              | 105 +++++++
+ _build/board.ml.depends                      |   1 +
+ _build/board.mli                             |   9 +
+ _build/board.mli.depends                     |   1 +
+ _build/command.cmi                           | Bin 0 -> 502 bytes
+ _build/command.cmo                           | Bin 0 -> 525 bytes
+ _build/command.ml                            |  24 ++
+ _build/command.ml.depends                    |   1 +
+ _build/command.mli                           |  16 ++
+ _build/command.mli.depends                   |   1 +
+ _build/oUnit-Test suite-vm3110-2017fa#00.log | 399 +++++++++++++++++++++++++++
+ _build/oUnit-Test suite-vm3110-2017fa#01.log | 135 +++++++++
+ _build/oUnit-Test suite.cache                | Bin 0 -> 1658 bytes
+ _build/ocamlc.where                          |   1 +
+ _build/state.cmi                             | Bin 0 -> 963 bytes
+ _build/state.cmo                             | Bin 0 -> 6801 bytes
+ _build/state.ml                              | 261 ++++++++++++++++++
+ _build/state.ml.depends                      |   1 +
+ _build/state.mli                             |  54 ++++
+ _build/state.mli.depends                     |   1 +
+ _build/state_test.byte                       | Bin 0 -> 434714 bytes
+ _build/state_test.ml                         | 142 ++++++++++
+ _build/state_test.ml.depends                 |   1 +
+ state.ml                                     |  24 +-
+ state_test.byte                              |   1 +
+ state_test.ml                                | 107 +++----
+ 30 files changed, 1274 insertions(+), 61 deletions(-)
+
+commit 0f9a07e21f09f4e9101d0cb8a26640930aaaff75
+Author: Ping Tseng <pingtseng@dhcp-gs-4627.eduroam.cornell.edu>
+Date:   Wed Dec 6 15:55:22 2017 -0500
+
+    more style
+
+ command.ml  | 14 ++++----------
+ command.mli |  5 -----
+ main.ml     | 40 ++++++++--------------------------------
+ 3 files changed, 12 insertions(+), 47 deletions(-)
+
+commit 8340b59ef0a2d1fcb598e301f6cc2ec5b31d4635
+Author: Ping Tseng <pingtseng@dhcp-gs-4627.eduroam.cornell.edu>
+Date:   Wed Dec 6 15:37:12 2017 -0500
+
+    improved style
+
+ main.ml | 120 +++++++++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 78 insertions(+), 42 deletions(-)
+
+commit bb41a3b2c18239b5677029765a20048af383fabd
+Author: Ping Tseng <pingtseng@dhcp-gs-4627.eduroam.cornell.edu>
+Date:   Wed Dec 6 15:36:58 2017 -0500
+
+    added specs
+
+ board.ml | 37 ++++++++++++++++++++++++++++---------
+ 1 file changed, 28 insertions(+), 9 deletions(-)
+
+commit c61f6804ede1363bef0ce42eb985ea7db6837b94
+Merge: 7c82831 a2b9e45
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 15:10:06 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit 7c82831cdd637dad32391c520c3895b06f8de840
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 15:09:56 2017 -0500
+
+    edit
+
+ _build/_digests            |  31 ----
+ _build/_log                |  44 ------
+ _build/ai.cmi              | Bin 437 -> 0 bytes
+ _build/ai.cmo              | Bin 4681 -> 0 bytes
+ _build/ai.ml               | 363 ---------------------------------------------
+ _build/ai.ml.depends       |   1 -
+ _build/ai.mli              |   8 -
+ _build/ai.mli.depends      |   1 -
+ _build/board.cmi           | Bin 425 -> 0 bytes
+ _build/board.cmo           | Bin 2747 -> 0 bytes
+ _build/board.ml            | 114 --------------
+ _build/board.ml.depends    |   1 -
+ _build/board.mli           |   9 --
+ _build/board.mli.depends   |   1 -
+ _build/command.cmi         | Bin 502 -> 0 bytes
+ _build/command.cmo         | Bin 525 -> 0 bytes
+ _build/command.ml          |  24 ---
+ _build/command.ml.depends  |   1 -
+ _build/command.mli         |  16 --
+ _build/command.mli.depends |   1 -
+ _build/main.byte           | Bin 249043 -> 0 bytes
+ _build/main.cmi            | Bin 434 -> 0 bytes
+ _build/main.cmo            | Bin 9617 -> 0 bytes
+ _build/main.ml             | 254 -------------------------------
+ _build/main.ml.depends     |   1 -
+ _build/main.mli            |  13 --
+ _build/main.mli.depends    |   1 -
+ _build/ocamlc.where        |   1 -
+ _build/state.cmi           | Bin 963 -> 0 bytes
+ _build/state.cmo           | Bin 6801 -> 0 bytes
+ _build/state.ml            | 261 --------------------------------
+ _build/state.ml.depends    |   1 -
+ _build/state.mli           |  54 -------
+ _build/state.mli.depends   |   1 -
+ main.byte                  |   1 -
+ 35 files changed, 1203 deletions(-)
+
+commit bbb9f58d706bfb930d0e0acf68b1e4c6109e22c7
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Dec 6 15:09:45 2017 -0500
+
+    edit
+
+ _build/_digests            |  31 ++++
+ _build/_log                |  44 ++++++
+ _build/ai.cmi              | Bin 0 -> 437 bytes
+ _build/ai.cmo              | Bin 0 -> 4681 bytes
+ _build/ai.ml               | 363 +++++++++++++++++++++++++++++++++++++++++++++
+ _build/ai.ml.depends       |   1 +
+ _build/ai.mli              |   8 +
+ _build/ai.mli.depends      |   1 +
+ _build/board.cmi           | Bin 0 -> 425 bytes
+ _build/board.cmo           | Bin 0 -> 2747 bytes
+ _build/board.ml            | 114 ++++++++++++++
+ _build/board.ml.depends    |   1 +
+ _build/board.mli           |   9 ++
+ _build/board.mli.depends   |   1 +
+ _build/command.cmi         | Bin 0 -> 502 bytes
+ _build/command.cmo         | Bin 0 -> 525 bytes
+ _build/command.ml          |  24 +++
+ _build/command.ml.depends  |   1 +
+ _build/command.mli         |  16 ++
+ _build/command.mli.depends |   1 +
+ _build/main.byte           | Bin 0 -> 249043 bytes
+ _build/main.cmi            | Bin 0 -> 434 bytes
+ _build/main.cmo            | Bin 0 -> 9617 bytes
+ _build/main.ml             | 254 +++++++++++++++++++++++++++++++
+ _build/main.ml.depends     |   1 +
+ _build/main.mli            |  13 ++
+ _build/main.mli.depends    |   1 +
+ _build/ocamlc.where        |   1 +
+ _build/state.cmi           | Bin 0 -> 963 bytes
+ _build/state.cmo           | Bin 0 -> 6801 bytes
+ _build/state.ml            | 261 ++++++++++++++++++++++++++++++++
+ _build/state.ml.depends    |   1 +
+ _build/state.mli           |  54 +++++++
+ _build/state.mli.depends   |   1 +
+ main.byte                  |   1 +
+ main.ml                    |   2 +-
+ 36 files changed, 1204 insertions(+), 1 deletion(-)
+
+commit a2b9e45d752ffee6163d1a7602534dc6fbdfa7da
+Author: Ping Tseng <pingtseng@dhcp-gs-4627.eduroam.cornell.edu>
+Date:   Tue Dec 5 14:16:50 2017 -0500
+
+    Fixed the positioning of the numbers in board
+
+ board.ml | 31 +++++++++++--------------------
+ main.ml  |  6 +++---
+ 2 files changed, 14 insertions(+), 23 deletions(-)
+
+commit 33e3da1902b644c44e477a9a696342429ab5bb8f
+Author: Ping Tseng <pingtseng@dhcp-gs-4627.eduroam.cornell.edu>
+Date:   Tue Dec 5 13:23:48 2017 -0500
+
+    Added levels to human vs ai
+
+ main.ml | 76 ++++++++++++++++++++++++++++++++++++++++-------------------------
+ 1 file changed, 47 insertions(+), 29 deletions(-)
+
+commit c47f36b96d7215470e0c3cc2465139412fe901b8
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Tue Dec 5 01:03:02 2017 -0500
+
+    Changed max step in main from 8 to either 7
+
+ main.ml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit eff2d0d5215942667cf9af088530fe8a529326d1
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Tue Dec 5 00:49:01 2017 -0500
+
+    Implemented get_penalty and get_score in ai.ml
+
+ _build/_digests            |  31 ----
+ _build/_log                |  44 ------
+ _build/ai.cmi              | Bin 437 -> 0 bytes
+ _build/ai.cmo              | Bin 4681 -> 0 bytes
+ _build/ai.ml               | 363 ---------------------------------------------
+ _build/ai.ml.depends       |   1 -
+ _build/ai.mli              |   8 -
+ _build/ai.mli.depends      |   1 -
+ _build/board.cmi           | Bin 425 -> 0 bytes
+ _build/board.cmo           | Bin 2747 -> 0 bytes
+ _build/board.ml            | 114 --------------
+ _build/board.ml.depends    |   1 -
+ _build/board.mli           |   9 --
+ _build/board.mli.depends   |   1 -
+ _build/command.cmi         | Bin 502 -> 0 bytes
+ _build/command.cmo         | Bin 525 -> 0 bytes
+ _build/command.ml          |  24 ---
+ _build/command.ml.depends  |   1 -
+ _build/command.mli         |  16 --
+ _build/command.mli.depends |   1 -
+ _build/main.byte           | Bin 249103 -> 0 bytes
+ _build/main.cmi            | Bin 434 -> 0 bytes
+ _build/main.cmo            | Bin 9705 -> 0 bytes
+ _build/main.ml             | 254 -------------------------------
+ _build/main.ml.depends     |   1 -
+ _build/main.mli            |  13 --
+ _build/main.mli.depends    |   1 -
+ _build/ocamlc.where        |   1 -
+ _build/state.cmi           | Bin 963 -> 0 bytes
+ _build/state.cmo           | Bin 6801 -> 0 bytes
+ _build/state.ml            | 261 --------------------------------
+ _build/state.ml.depends    |   1 -
+ _build/state.mli           |  54 -------
+ _build/state.mli.depends   |   1 -
+ main.byte                  |   1 -
+ 35 files changed, 1203 deletions(-)
+
+commit 0cca4954dee73e45a9a49e216222b19e32b06e49
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Tue Dec 5 00:48:53 2017 -0500
+
+    Implemented get_penalty and get_score in ai.ml
+
+ _build/_digests            |  31 ++++
+ _build/_log                |  44 ++++++
+ _build/ai.cmi              | Bin 0 -> 437 bytes
+ _build/ai.cmo              | Bin 0 -> 4681 bytes
+ _build/ai.ml               | 363 +++++++++++++++++++++++++++++++++++++++++++++
+ _build/ai.ml.depends       |   1 +
+ _build/ai.mli              |   8 +
+ _build/ai.mli.depends      |   1 +
+ _build/board.cmi           | Bin 0 -> 425 bytes
+ _build/board.cmo           | Bin 0 -> 2747 bytes
+ _build/board.ml            | 114 ++++++++++++++
+ _build/board.ml.depends    |   1 +
+ _build/board.mli           |   9 ++
+ _build/board.mli.depends   |   1 +
+ _build/command.cmi         | Bin 0 -> 502 bytes
+ _build/command.cmo         | Bin 0 -> 525 bytes
+ _build/command.ml          |  24 +++
+ _build/command.ml.depends  |   1 +
+ _build/command.mli         |  16 ++
+ _build/command.mli.depends |   1 +
+ _build/main.byte           | Bin 0 -> 249103 bytes
+ _build/main.cmi            | Bin 0 -> 434 bytes
+ _build/main.cmo            | Bin 0 -> 9705 bytes
+ _build/main.ml             | 254 +++++++++++++++++++++++++++++++
+ _build/main.ml.depends     |   1 +
+ _build/main.mli            |  13 ++
+ _build/main.mli.depends    |   1 +
+ _build/ocamlc.where        |   1 +
+ _build/state.cmi           | Bin 0 -> 963 bytes
+ _build/state.cmo           | Bin 0 -> 6801 bytes
+ _build/state.ml            | 261 ++++++++++++++++++++++++++++++++
+ _build/state.ml.depends    |   1 +
+ _build/state.mli           |  54 +++++++
+ _build/state.mli.depends   |   1 +
+ ai.ml                      |  53 ++++---
+ main.byte                  |   1 +
+ main.ml                    |   2 +-
+ 37 files changed, 1239 insertions(+), 19 deletions(-)
+
+commit 00b86fc5b5268f6d69a8c6d91912e659afe7307b
+Merge: bf6e6b7 5f91347
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sun Dec 3 10:43:55 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit bf6e6b77de127e77a5d433a7c9c249eece81a315
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sun Dec 3 10:39:23 2017 -0500
+
+    Added get_neighbors
+
+ ai.ml | 51 ++++++++++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 44 insertions(+), 7 deletions(-)
+
+commit 5f913477c7bf27f7e8593c481c7f84fc644ec752
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Sat Dec 2 23:27:41 2017 -0500
+
+    Finished state comments and checked mli. cleaned
+
+ _build/_digests            |  31 -----
+ _build/_log                |  24 ----
+ _build/ai.cmi              | Bin 402 -> 0 bytes
+ _build/ai.cmo              | Bin 4835 -> 0 bytes
+ _build/ai.ml               | 314 ---------------------------------------------
+ _build/ai.ml.depends       |   1 -
+ _build/ai.mli              |   8 --
+ _build/ai.mli.depends      |   1 -
+ _build/board.cmi           | Bin 425 -> 0 bytes
+ _build/board.cmo           | Bin 2747 -> 0 bytes
+ _build/board.ml            | 114 ----------------
+ _build/board.ml.depends    |   1 -
+ _build/board.mli           |   9 --
+ _build/board.mli.depends   |   1 -
+ _build/command.cmi         | Bin 502 -> 0 bytes
+ _build/command.cmo         | Bin 525 -> 0 bytes
+ _build/command.ml          |  24 ----
+ _build/command.ml.depends  |   1 -
+ _build/command.mli         |  16 ---
+ _build/command.mli.depends |   1 -
+ _build/main.byte           | Bin 248904 -> 0 bytes
+ _build/main.cmi            | Bin 434 -> 0 bytes
+ _build/main.cmo            | Bin 9381 -> 0 bytes
+ _build/main.ml             | 276 ---------------------------------------
+ _build/main.ml.depends     |   1 -
+ _build/main.mli            |  13 --
+ _build/main.mli.depends    |   1 -
+ _build/ocamlc.where        |   1 -
+ _build/state.cmi           | Bin 887 -> 0 bytes
+ _build/state.cmo           | Bin 6835 -> 0 bytes
+ _build/state.ml            | 249 -----------------------------------
+ _build/state.ml.depends    |   1 -
+ _build/state.mli           |  50 --------
+ _build/state.mli.depends   |   1 -
+ main.byte                  |   1 -
+ 35 files changed, 1140 deletions(-)
+
+commit 2bf40ce3f1aedd354fdd06131206393374aeed04
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Sat Dec 2 23:26:39 2017 -0500
+
+    Commented state and checked mli for it
+
+ _build/_digests            |  31 +++++
+ _build/_log                |  24 ++++
+ _build/ai.cmi              | Bin 0 -> 402 bytes
+ _build/ai.cmo              | Bin 0 -> 4835 bytes
+ _build/ai.ml               | 314 +++++++++++++++++++++++++++++++++++++++++++++
+ _build/ai.ml.depends       |   1 +
+ _build/ai.mli              |   8 ++
+ _build/ai.mli.depends      |   1 +
+ _build/board.cmi           | Bin 0 -> 425 bytes
+ _build/board.cmo           | Bin 0 -> 2747 bytes
+ _build/board.ml            | 114 ++++++++++++++++
+ _build/board.ml.depends    |   1 +
+ _build/board.mli           |   9 ++
+ _build/board.mli.depends   |   1 +
+ _build/command.cmi         | Bin 0 -> 502 bytes
+ _build/command.cmo         | Bin 0 -> 525 bytes
+ _build/command.ml          |  24 ++++
+ _build/command.ml.depends  |   1 +
+ _build/command.mli         |  16 +++
+ _build/command.mli.depends |   1 +
+ _build/main.byte           | Bin 0 -> 248904 bytes
+ _build/main.cmi            | Bin 0 -> 434 bytes
+ _build/main.cmo            | Bin 0 -> 9381 bytes
+ _build/main.ml             | 276 +++++++++++++++++++++++++++++++++++++++
+ _build/main.ml.depends     |   1 +
+ _build/main.mli            |  13 ++
+ _build/main.mli.depends    |   1 +
+ _build/ocamlc.where        |   1 +
+ _build/state.cmi           | Bin 0 -> 887 bytes
+ _build/state.cmo           | Bin 0 -> 6835 bytes
+ _build/state.ml            | 249 +++++++++++++++++++++++++++++++++++
+ _build/state.ml.depends    |   1 +
+ _build/state.mli           |  50 ++++++++
+ _build/state.mli.depends   |   1 +
+ main.byte                  |   1 +
+ state.ml                   |  78 ++++++-----
+ state.mli                  |   4 +
+ 37 files changed, 1189 insertions(+), 33 deletions(-)
+
+commit f7f7b73e9ad66dd23176783aa04b202dccecb92e
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sat Dec 2 19:03:42 2017 -0500
+
+    Edited repl_vs_ai
+
+ ai.ml   | 12 ++++------
+ main.ml | 84 ++++++++++++++++++++++++-----------------------------------------
+ 2 files changed, 36 insertions(+), 60 deletions(-)
+
+commit 003e806494d32a8589a65d3bc0e865e313653a2d
+Merge: 8a408cc d000aef
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sat Dec 2 18:24:31 2017 -0500
+
+    fixed merge conflict
+
+commit 8a408ccbde70960ba8f9cd4c20c753ccedf3f48d
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sat Dec 2 18:21:44 2017 -0500
+
+    Remimplemented expectimax iai.ml - got to 1024
+
+ _build/_digests            |  31 ------
+ _build/_log                |  44 ---------
+ _build/ai.cmi              | Bin 437 -> 0 bytes
+ _build/ai.cmo              | Bin 3192 -> 0 bytes
+ _build/ai.ml               | 220 ------------------------------------------
+ _build/ai.ml.depends       |   1 -
+ _build/ai.mli              |   8 --
+ _build/ai.mli.depends      |   1 -
+ _build/board.cmi           | Bin 425 -> 0 bytes
+ _build/board.cmo           | Bin 2747 -> 0 bytes
+ _build/board.ml            | 114 ----------------------
+ _build/board.ml.depends    |   1 -
+ _build/board.mli           |   9 --
+ _build/board.mli.depends   |   1 -
+ _build/command.cmi         | Bin 502 -> 0 bytes
+ _build/command.cmo         | Bin 525 -> 0 bytes
+ _build/command.ml          |  24 -----
+ _build/command.ml.depends  |   1 -
+ _build/command.mli         |  16 ----
+ _build/command.mli.depends |   1 -
+ _build/main.byte           | Bin 244441 -> 0 bytes
+ _build/main.cmi            | Bin 434 -> 0 bytes
+ _build/main.cmo            | Bin 5988 -> 0 bytes
+ _build/main.ml             | 213 -----------------------------------------
+ _build/main.ml.depends     |   1 -
+ _build/main.mli            |  13 ---
+ _build/main.mli.depends    |   1 -
+ _build/ocamlc.where        |   1 -
+ _build/state.cmi           | Bin 887 -> 0 bytes
+ _build/state.cmo           | Bin 6432 -> 0 bytes
+ _build/state.ml            | 233 ---------------------------------------------
+ _build/state.ml.depends    |   1 -
+ _build/state.mli           |  50 ----------
+ _build/state.mli.depends   |   1 -
+ main.byte                  |   1 -
+ 35 files changed, 987 deletions(-)
+
+commit e474407884afaa51304f93bbbb4ea005dc8b22dc
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sat Dec 2 18:21:36 2017 -0500
+
+    Remimplemented expectimax iai.ml - got to 1024
+
+ _build/_digests            |  31 ++++++
+ _build/_log                |  44 +++++++++
+ _build/ai.cmi              | Bin 0 -> 437 bytes
+ _build/ai.cmo              | Bin 0 -> 3192 bytes
+ _build/ai.ml               | 220 ++++++++++++++++++++++++++++++++++++++++++
+ _build/ai.ml.depends       |   1 +
+ _build/ai.mli              |   8 ++
+ _build/ai.mli.depends      |   1 +
+ _build/board.cmi           | Bin 0 -> 425 bytes
+ _build/board.cmo           | Bin 0 -> 2747 bytes
+ _build/board.ml            | 114 ++++++++++++++++++++++
+ _build/board.ml.depends    |   1 +
+ _build/board.mli           |   9 ++
+ _build/board.mli.depends   |   1 +
+ _build/command.cmi         | Bin 0 -> 502 bytes
+ _build/command.cmo         | Bin 0 -> 525 bytes
+ _build/command.ml          |  24 +++++
+ _build/command.ml.depends  |   1 +
+ _build/command.mli         |  16 ++++
+ _build/command.mli.depends |   1 +
+ _build/main.byte           | Bin 0 -> 244441 bytes
+ _build/main.cmi            | Bin 0 -> 434 bytes
+ _build/main.cmo            | Bin 0 -> 5988 bytes
+ _build/main.ml             | 213 +++++++++++++++++++++++++++++++++++++++++
+ _build/main.ml.depends     |   1 +
+ _build/main.mli            |  13 +++
+ _build/main.mli.depends    |   1 +
+ _build/ocamlc.where        |   1 +
+ _build/state.cmi           | Bin 0 -> 887 bytes
+ _build/state.cmo           | Bin 0 -> 6432 bytes
+ _build/state.ml            | 233 +++++++++++++++++++++++++++++++++++++++++++++
+ _build/state.ml.depends    |   1 +
+ _build/state.mli           |  50 ++++++++++
+ _build/state.mli.depends   |   1 +
+ ai.ml                      |  39 ++++----
+ ai.mli                     |   2 +-
+ main.byte                  |   1 +
+ main.ml                    |  68 +++++++------
+ 38 files changed, 1043 insertions(+), 53 deletions(-)
+
+commit d000aefb83815d3bfddf6cd750c4512ad3b6cf21
+Merge: 7a4dafd 954d236
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 18:10:48 2017 -0500
+
+    score
+
+commit 7a4dafd6184b2f2a514a30ab70d23949d01f7c2e
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 18:10:20 2017 -0500
+
+    score
+
+ main.ml | 43 ++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 34 insertions(+), 9 deletions(-)
+
+commit 954d2360888b7d83cd739d50c59312ccf739c74e
+Merge: de5a2e5 e151858
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sat Dec 2 18:09:05 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit de5a2e53ab70870e02c4998c0b825e2c2e56bea6
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sat Dec 2 18:06:19 2017 -0500
+
+    why
+
+ ai.ml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit e1518582b91f9284222af61a8a3a52f4af5cabff
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 17:54:13 2017 -0500
+
+    Added score in gui
+
+ main.ml | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+commit ca7e469538a1d69878c9dac0e65362e531b566f1
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sat Dec 2 17:53:22 2017 -0500
+
+    rip
+
+ ai.ml | 36 ++++++++++++++++++------------------
+ 1 file changed, 18 insertions(+), 18 deletions(-)
+
+commit 90d8772ad8c9a0c97f5647bc6f386d37641e7394
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Sat Dec 2 17:45:23 2017 -0500
+
+    Edited state.ml
+
+ state.ml | 114 ++++++++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 65 insertions(+), 49 deletions(-)
+
+commit dd33061ac04a4f38c6ffca35adfece5f47fdbda5
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 17:38:57 2017 -0500
+
+    make check
+
+ _build/_digests            |   6 ------
+ _build/_log                |  10 ----------
+ _build/command.cmi         | Bin 502 -> 0 bytes
+ _build/command.cmo         | Bin 525 -> 0 bytes
+ _build/command.ml          |  24 ------------------------
+ _build/command.ml.depends  |   1 -
+ _build/command.mli         |  16 ----------------
+ _build/command.mli.depends |   1 -
+ 8 files changed, 58 deletions(-)
+
+commit a8be8474bef4ccb11fcc01cfd9da488257d56600
+Merge: 6969f0d 88923c8
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 17:31:31 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit 88923c8d078178ca0aa0c5113d9aa985335fc501
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sat Dec 2 17:28:09 2017 -0500
+
+    starting ai
+
+ ai.ml | 100 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 95 insertions(+), 5 deletions(-)
+
+commit 6969f0dabcc9fcadf22f1dd44d547ad6dd41aa2f
+Merge: b70dff4 fa06d2c
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 17:28:04 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit b70dff4643af0880abcc3e570125bb5303e6f89c
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 17:27:46 2017 -0500
+
+    makefile
+
+ .DS_Store     | Bin 8196 -> 8196 bytes
+ Makefile      |   8 +-------
+ _tags         |   2 +-
+ checkenv.sh   |  16 ----------------
+ checktypes.sh |   0
+ checkzip.sh   |  50 --------------------------------------------------
+ main.ml       |   4 ++--
+ 7 files changed, 4 insertions(+), 76 deletions(-)
+
+commit fa06d2cdb6692d86251734886d1c5100b04f7acc
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Sat Dec 2 17:26:09 2017 -0500
+
+    Changed score
+
+ _build/_digests            |   6 ++++++
+ _build/_log                |  10 ++++++++++
+ _build/command.cmi         | Bin 0 -> 502 bytes
+ _build/command.cmo         | Bin 0 -> 525 bytes
+ _build/command.ml          |  24 ++++++++++++++++++++++++
+ _build/command.ml.depends  |   1 +
+ _build/command.mli         |  16 ++++++++++++++++
+ _build/command.mli.depends |   1 +
+ 8 files changed, 58 insertions(+)
+
+commit 1129226620324bc0664b4411f2ad0c1c58db7b58
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 17:10:55 2017 -0500
+
+    spacing
+
+ README.md | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit a14713fc696701ac16f21479bd798fc22c5c7e14
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 17:10:21 2017 -0500
+
+    Changed a little of README
+
+ README.md | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit 0ad8e922f43c62f5cd82e94844223245e5884db6
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 17:07:34 2017 -0500
+
+    README
+
+ README.md | 49 ++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 48 insertions(+), 1 deletion(-)
+
+commit 72987440066a5614da94d5faaa8341d7a421be7a
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 16:44:59 2017 -0500
+
+    Changed 1player and ai board to center
+
+ main.ml | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+commit 1281ea0485c94c72a03270a7c5ece35da27109db
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 16:33:04 2017 -0500
+
+    finished main
+
+ ai.ml   |   6 +-
+ main.ml | 366 ++++++++++++++++++++++++++++++++++------------------------------
+ 2 files changed, 199 insertions(+), 173 deletions(-)
+
+commit 7689f28824f50955e3132bef68ae09b91d6d5d09
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 16:21:13 2017 -0500
+
+    main works again
+
+ ai.mli  |   2 +-
+ main.ml | 381 ++++++++++++++++++++++++++++++----------------------------------
+ 2 files changed, 179 insertions(+), 204 deletions(-)
+
+commit 54d8fc08ed24389d3fcd51f646c04c7d8590022b
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 16:08:12 2017 -0500
+
+    ?
+
+ main.ml | 2 --
+ 1 file changed, 2 deletions(-)
+
+commit 14730a4db0f554ca5ab23e88b33e50a25535fa4b
+Merge: 2c07bb1 cb0b2c6
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 16:07:26 2017 -0500
+
+    ?
+
+commit 2c07bb107541ecee2f28d077aa6e703d24240482
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 16:06:01 2017 -0500
+
+    ?
+
+ main.ml | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
+
+commit cb0b2c6eaa47200eac3dc8a72d2eda859cb4b2a0
+Merge: db07c1b fc3ce93
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sat Dec 2 16:02:48 2017 -0500
+
+    fixed merge conflict
+
+commit db07c1bd6974f7ef37a50bec1e6df255bb1a1836
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sat Dec 2 16:00:33 2017 -0500
+
+    Implemented expectimax form of ai, edited ai repl
+
+ _build/_digests                              |  33 ---
+ _build/_log                                  |  24 --
+ _build/ai.cmi                                | Bin 437 -> 0 bytes
+ _build/ai.ml                                 | 224 -----------------
+ _build/ai.ml.depends                         |   1 -
+ _build/ai.mli                                |   8 -
+ _build/ai.mli.depends                        |   1 -
+ _build/board.cmi                             | Bin 425 -> 0 bytes
+ _build/board.cmo                             | Bin 2747 -> 0 bytes
+ _build/board.ml                              | 114 ---------
+ _build/board.ml.depends                      |   1 -
+ _build/board.mli                             |   9 -
+ _build/board.mli.depends                     |   1 -
+ _build/command.cmi                           | Bin 502 -> 0 bytes
+ _build/command.cmo                           | Bin 525 -> 0 bytes
+ _build/command.ml                            |  24 --
+ _build/command.ml.depends                    |   1 -
+ _build/command.mli                           |  16 --
+ _build/command.mli.depends                   |   1 -
+ _build/main.cmi                              | Bin 434 -> 0 bytes
+ _build/main.ml                               | 189 ---------------
+ _build/main.ml.depends                       |   1 -
+ _build/main.mli                              |  13 -
+ _build/main.mli.depends                      |   1 -
+ _build/oUnit-Test suite-vm3110-2017fa#00.log | 343 ---------------------------
+ _build/oUnit-Test suite-vm3110-2017fa#01.log | 114 ---------
+ _build/oUnit-Test suite.cache                | Bin 1397 -> 0 bytes
+ _build/ocamlc.where                          |   1 -
+ _build/state.cmi                             | Bin 887 -> 0 bytes
+ _build/state.cmo                             | Bin 6432 -> 0 bytes
+ _build/state.ml                              | 233 ------------------
+ _build/state.ml.depends                      |   1 -
+ _build/state.mli                             |  50 ----
+ _build/state.mli.depends                     |   1 -
+ _build/state_test.byte                       | Bin 432663 -> 0 bytes
+ _build/state_test.cmi                        | Bin 1902 -> 0 bytes
+ _build/state_test.cmo                        | Bin 8731 -> 0 bytes
+ _build/state_test.ml                         | 141 -----------
+ _build/state_test.ml.depends                 |   1 -
+ state_test.byte                              |   1 -
+ 40 files changed, 1548 deletions(-)
+
+commit 61342e9c95036165b0ae0c791693b5eb030f60f5
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sat Dec 2 16:00:23 2017 -0500
+
+    Implemented expectimax form of ai, edited ai repl
+
+ _build/_digests                              |  33 +++
+ _build/_log                                  |  24 ++
+ _build/ai.cmi                                | Bin 0 -> 437 bytes
+ _build/ai.ml                                 | 224 +++++++++++++++++
+ _build/ai.ml.depends                         |   1 +
+ _build/ai.mli                                |   8 +
+ _build/ai.mli.depends                        |   1 +
+ _build/board.cmi                             | Bin 0 -> 425 bytes
+ _build/board.cmo                             | Bin 0 -> 2747 bytes
+ _build/board.ml                              | 114 +++++++++
+ _build/board.ml.depends                      |   1 +
+ _build/board.mli                             |   9 +
+ _build/board.mli.depends                     |   1 +
+ _build/command.cmi                           | Bin 0 -> 502 bytes
+ _build/command.cmo                           | Bin 0 -> 525 bytes
+ _build/command.ml                            |  24 ++
+ _build/command.ml.depends                    |   1 +
+ _build/command.mli                           |  16 ++
+ _build/command.mli.depends                   |   1 +
+ _build/main.cmi                              | Bin 0 -> 434 bytes
+ _build/main.ml                               | 189 +++++++++++++++
+ _build/main.ml.depends                       |   1 +
+ _build/main.mli                              |  13 +
+ _build/main.mli.depends                      |   1 +
+ _build/oUnit-Test suite-vm3110-2017fa#00.log | 343 +++++++++++++++++++++++++++
+ _build/oUnit-Test suite-vm3110-2017fa#01.log | 114 +++++++++
+ _build/oUnit-Test suite.cache                | Bin 0 -> 1397 bytes
+ _build/ocamlc.where                          |   1 +
+ _build/state.cmi                             | Bin 0 -> 887 bytes
+ _build/state.cmo                             | Bin 0 -> 6432 bytes
+ _build/state.ml                              | 233 ++++++++++++++++++
+ _build/state.ml.depends                      |   1 +
+ _build/state.mli                             |  50 ++++
+ _build/state.mli.depends                     |   1 +
+ _build/state_test.byte                       | Bin 0 -> 432663 bytes
+ _build/state_test.cmi                        | Bin 0 -> 1902 bytes
+ _build/state_test.cmo                        | Bin 0 -> 8731 bytes
+ _build/state_test.ml                         | 141 +++++++++++
+ _build/state_test.ml.depends                 |   1 +
+ ai.ml                                        |  96 +++++++-
+ ai.mli                                       |   2 +-
+ main.ml                                      |  44 ++--
+ state_test.byte                              |   1 +
+ 43 files changed, 1659 insertions(+), 31 deletions(-)
+
+commit fc3ce93fedc2028eca433e68ceaa3dbff4c89613
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2334.eduroam.cornell.edu>
+Date:   Sat Dec 2 15:56:16 2017 -0500
+
+    Finished main
+
+ main.ml | 80 ++++++++++++++++++++++++++++++-----------------------------------
+ 1 file changed, 37 insertions(+), 43 deletions(-)
+
+commit db9ce30418fb72ec110a3bf79a28d25bbe5d6d85
+Merge: 68e6cd2 a6bac73
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sat Dec 2 15:07:40 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit 68e6cd2391af9cd99ff7397ccb85c8514464dfe3
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sat Dec 2 15:07:04 2017 -0500
+
+    Changed random block
+
+ state.ml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit a6bac73cd1a603ae71d73e7ecac01cd3dae49642
+Merge: 3f29429 298e56e
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sat Dec 2 15:03:19 2017 -0500
+
+    fixed merge conflict
+
+commit 3f29429e4d6027d4458c8d16f160517c6b9e50ae
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sat Dec 2 15:01:52 2017 -0500
+
+    edit
+
+ state_test.ml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 298e56ee58a7a908f4f75901b8ea8da122b2750f
+Author: Ping Tseng <pingtseng@dhcp-mcfad-3304.eduroam.cornell.edu>
+Date:   Fri Dec 1 21:48:58 2017 -0500
+
+    fixed lines in main that went over 80 char
+
+ main.ml | 21 ++++++++++++++-------
+ 1 file changed, 14 insertions(+), 7 deletions(-)
+
+commit f087e39344ce74c2888c4bafffa9abb12283c213
+Author: Ping Tseng <pingtseng@dhcp-mcfad-3304.eduroam.cornell.edu>
+Date:   Fri Dec 1 21:41:22 2017 -0500
+
+    added working test cases that don't require functions not in state.mli
+
+ state_test.ml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 9fdb75388a2e67651a9f89b4dca772ef27c7088f
+Author: Ping Tseng <pingtseng@dhcp-mcfad-3304.eduroam.cornell.edu>
+Date:   Fri Dec 1 21:39:44 2017 -0500
+
+    make test works now
+
+ .DS_Store     | Bin 6148 -> 8196 bytes
+ _tags         |   2 +-
+ main.ml       |   4 +--
+ state_test.ml |  87 +++++++++++++++++++++++++++++++++++++---------------------
+ 4 files changed, 59 insertions(+), 34 deletions(-)
+
+commit ce6e8f0646b7a70e774735359d206746df41258d
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Fri Dec 1 14:40:21 2017 -0500
+
+    Added test cases for get_score and get_status
+
+ state.ml      |   2 +-
+ state_test.ml | 114 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 114 insertions(+), 2 deletions(-)
+
+commit 872e85823b626b02bab73694f4bcb5c90a5a8e6f
+Merge: 1383ad3 4c891a9
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Thu Nov 30 20:57:51 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit 1383ad37e2cb80805c1030c7d94fbfd3e26b7b5e
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Thu Nov 30 19:50:46 2017 -0500
+
+    started implementation
+
+ ai.ml | 55 +++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 53 insertions(+), 2 deletions(-)
+
+commit 4c891a9c2e9702d55e888cf394d188e722c84bdd
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Thu Nov 30 18:57:25 2017 -0500
+
+    Added comments for testing state in state_test.ml
+
+ state_test.ml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit b4fb2e5fa6cdca2ba1aee5383498bd9820a68c15
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Thu Nov 30 18:52:49 2017 -0500
+
+    Added count_zeros to state.mli
+
+ state.ml  | 2 --
+ state.mli | 2 ++
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit f04d2c9feeda2b37d87ce151581ce5ad145156bb
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Nov 29 22:37:46 2017 -0500
+
+    Added expectimax implementation, edited best_state to account for merges
+
+ ai.ml     | 77 ++++++++++++++++++++++++++++++++++++++++++++++++++++++---------
+ main.ml   | 13 +++++++----
+ state.ml  |  2 +-
+ state.mli |  2 ++
+ 4 files changed, 79 insertions(+), 15 deletions(-)
+
+commit a0e5741317e75511ebddc5ed11f2ddddde1880c7
+Merge: 21b1a40 73f3927
+Author: Ping Tseng <pingtseng@dhcp-mcfad-3304.eduroam.cornell.edu>
+Date:   Wed Nov 29 20:18:17 2017 -0500
+
+    text changes
+
+commit 21b1a40ea5354f923f29b74d27d5ca59b084d4ca
+Author: Ping Tseng <pingtseng@dhcp-mcfad-3304.eduroam.cornell.edu>
+Date:   Wed Nov 29 20:17:20 2017 -0500
+
+    text changes
+
+ main.ml | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+commit 73f3927fd937b08fa7c6401176d3ed5e1c0806ce
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Wed Nov 29 20:01:50 2017 -0500
+
+    Added comments in state
+
+ _build/_digests              |  25 ------
+ _build/_log                  |  53 -----------
+ _build/board.cmi             | Bin 425 -> 0 bytes
+ _build/board.cmo             | Bin 2783 -> 0 bytes
+ _build/board.ml              | 115 ------------------------
+ _build/board.ml.depends      |   1 -
+ _build/board.mli             |   9 --
+ _build/board.mli.depends     |   1 -
+ _build/command.cmi           | Bin 502 -> 0 bytes
+ _build/command.cmo           | Bin 525 -> 0 bytes
+ _build/command.ml            |  24 -----
+ _build/command.ml.depends    |   1 -
+ _build/command.mli           |  16 ----
+ _build/command.mli.depends   |   1 -
+ _build/main.byte             | Bin 238085 -> 0 bytes
+ _build/main.cmi              | Bin 434 -> 0 bytes
+ _build/main.cmo              | Bin 1375 -> 0 bytes
+ _build/main.ml               |  37 --------
+ _build/main.ml.depends       |   1 -
+ _build/main.mli              |  13 ---
+ _build/main.mli.depends      |   1 -
+ _build/ocamlc.where          |   1 -
+ _build/state.cmi             | Bin 784 -> 0 bytes
+ _build/state.cmo             | Bin 6281 -> 0 bytes
+ _build/state.ml              | 203 -------------------------------------------
+ _build/state.ml.depends      |   1 -
+ _build/state.mli             |  46 ----------
+ _build/state.mli.depends     |   1 -
+ _build/state_test.byte       | Bin 229191 -> 0 bytes
+ _build/state_test.cmi        | Bin 196 -> 0 bytes
+ _build/state_test.cmo        | Bin 180 -> 0 bytes
+ _build/state_test.ml         |   0
+ _build/state_test.ml.depends |   1 -
+ main.byte                    |   1 -
+ 34 files changed, 552 deletions(-)
+
+commit 52c59da8815f6b620345f8f34e1878c4d1966857
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Wed Nov 29 20:01:25 2017 -0500
+
+    Added in comments in state.ml
+
+ _build/_digests              |  25 ++++++
+ _build/_log                  |  53 +++++++++++
+ _build/board.cmi             | Bin 0 -> 425 bytes
+ _build/board.cmo             | Bin 0 -> 2783 bytes
+ _build/board.ml              | 115 ++++++++++++++++++++++++
+ _build/board.ml.depends      |   1 +
+ _build/board.mli             |   9 ++
+ _build/board.mli.depends     |   1 +
+ _build/command.cmi           | Bin 0 -> 502 bytes
+ _build/command.cmo           | Bin 0 -> 525 bytes
+ _build/command.ml            |  24 +++++
+ _build/command.ml.depends    |   1 +
+ _build/command.mli           |  16 ++++
+ _build/command.mli.depends   |   1 +
+ _build/main.byte             | Bin 0 -> 238085 bytes
+ _build/main.cmi              | Bin 0 -> 434 bytes
+ _build/main.cmo              | Bin 0 -> 1375 bytes
+ _build/main.ml               |  37 ++++++++
+ _build/main.ml.depends       |   1 +
+ _build/main.mli              |  13 +++
+ _build/main.mli.depends      |   1 +
+ _build/ocamlc.where          |   1 +
+ _build/state.cmi             | Bin 0 -> 784 bytes
+ _build/state.cmo             | Bin 0 -> 6281 bytes
+ _build/state.ml              | 203 +++++++++++++++++++++++++++++++++++++++++++
+ _build/state.ml.depends      |   1 +
+ _build/state.mli             |  46 ++++++++++
+ _build/state.mli.depends     |   1 +
+ _build/state_test.byte       | Bin 0 -> 229191 bytes
+ _build/state_test.cmi        | Bin 0 -> 196 bytes
+ _build/state_test.cmo        | Bin 0 -> 180 bytes
+ _build/state_test.ml         |   0
+ _build/state_test.ml.depends |   1 +
+ main.byte                    |   1 +
+ state.ml                     |  57 ++++++++----
+ 35 files changed, 594 insertions(+), 15 deletions(-)
+
+commit dbdabe8e11e5f9b4a682906bb1fba4e6a2017fe7
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Wed Nov 29 16:23:45 2017 -0500
+
+    Doesn't add random block if no change to board
+
+ state.ml | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+commit 2ac2b19912c7b07ca146a56113b20f554fb2e0d9
+Author: Ping Tseng <pingtseng@dhcp-hol-2585.eduroam.cornell.edu>
+Date:   Wed Nov 29 14:52:18 2017 -0500
+
+    multiplayer can keep going even after one person can't move anymore
+
+ main.ml | 78 ++++++++++++++++++++++++++++++++++++++++++++++-------------------
+ 1 file changed, 55 insertions(+), 23 deletions(-)
+
+commit 02c485eb1f96dbef28bb4511014aab82d836b119
+Author: Ping Tseng <pingtseng@dhcp-hol-2585.eduroam.cornell.edu>
+Date:   Wed Nov 29 14:31:39 2017 -0500
+
+    doesnt throw error anymore
+
+ ai.ml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 9b0145dca235164508e121ca09673e0694428438
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Wed Nov 29 00:28:24 2017 -0500
+
+    fixed update_status
+
+ state.ml | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit 8af117adbd16e9c686feaf68c02a15609a9b5b82
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Tue Nov 28 23:49:56 2017 -0500
+
+    some changes
+
+ main.ml | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+commit aed1f59d1223925457974ac86b6fe92d2955d32e
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Tue Nov 28 23:47:11 2017 -0500
+
+    some changes
+
+ main.ml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+commit 1170c51217a129466d8ee201ca7a0692582a5eeb
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Tue Nov 28 17:12:23 2017 -0500
+
+    Added and started expectimax function to ai
+
+ ai.ml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+commit 63a1a4f723602c3eaad7733f0a3f77f7257fcf9b
+Author: Ping Tseng <pingtseng@dhcp-hol-5299.eduroam.cornell.edu>
+Date:   Tue Nov 28 14:42:01 2017 -0500
+
+    made some changes
+
+ main.ml | 39 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 37 insertions(+), 2 deletions(-)
+
+commit 7f310cbf876dfcc18016d84964c06d6c1a86cb52
+Author: Ping Tseng <pingtseng@dhcp-rhodes-1001.eduroam.cornell.edu>
+Date:   Tue Nov 28 12:30:21 2017 -0500
+
+    Fixed the error when exiting
+
+ main.ml | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+commit b005ee63f6a3b7a84ad53aa65d90a6c23378441f
+Author: Ping Tseng <pingtseng@dhcp-mcfad-799.wifi-visitor.cit.cornell.edu>
+Date:   Mon Nov 27 23:37:46 2017 -0500
+
+    Fixed 1player
+
+ main.ml | 25 ++++++++++++++-----------
+ 1 file changed, 14 insertions(+), 11 deletions(-)
+
+commit 81151cf9218754b725274366ac47074aba5fb749
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Mon Nov 27 23:31:16 2017 -0500
+
+    Added ai files, implemented 'baby' ai for now, added pseudocode for more complex ai
+
+ _build/_digests            |  31 -------
+ _build/_log                |  44 ----------
+ _build/ai.cmi              | Bin 402 -> 0 bytes
+ _build/ai.cmo              | Bin 667 -> 0 bytes
+ _build/ai.ml               |  18 ----
+ _build/ai.ml.depends       |   1 -
+ _build/ai.mli              |   8 --
+ _build/ai.mli.depends      |   1 -
+ _build/board.cmi           | Bin 425 -> 0 bytes
+ _build/board.cmo           | Bin 2747 -> 0 bytes
+ _build/board.ml            | 114 -------------------------
+ _build/board.ml.depends    |   1 -
+ _build/board.mli           |   9 --
+ _build/board.mli.depends   |   1 -
+ _build/command.cmi         | Bin 502 -> 0 bytes
+ _build/command.cmo         | Bin 525 -> 0 bytes
+ _build/command.ml          |  24 ------
+ _build/command.ml.depends  |   1 -
+ _build/command.mli         |  16 ----
+ _build/command.mli.depends |   1 -
+ _build/main.byte           | Bin 240959 -> 0 bytes
+ _build/main.cmi            | Bin 434 -> 0 bytes
+ _build/main.cmo            | Bin 4449 -> 0 bytes
+ _build/main.ml             | 100 ----------------------
+ _build/main.ml.depends     |   1 -
+ _build/main.mli            |  13 ---
+ _build/main.mli.depends    |   1 -
+ _build/ocamlc.where        |   1 -
+ _build/state.cmi           | Bin 784 -> 0 bytes
+ _build/state.cmo           | Bin 6321 -> 0 bytes
+ _build/state.ml            | 208 ---------------------------------------------
+ _build/state.ml.depends    |   1 -
+ _build/state.mli           |  46 ----------
+ _build/state.mli.depends   |   1 -
+ main.byte                  |   1 -
+ 35 files changed, 643 deletions(-)
+
+commit 9c1b8dbb9d28e6223acc77856e8eafeb8b217e01
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Mon Nov 27 23:31:04 2017 -0500
+
+    Added ai files, implemented 'baby' ai for now, added pseudocode for more complex ai
+
+ _build/_digests            |  31 +++++++
+ _build/_log                |  44 ++++++++++
+ _build/ai.cmi              | Bin 0 -> 402 bytes
+ _build/ai.cmo              | Bin 0 -> 667 bytes
+ _build/ai.ml               |  18 ++++
+ _build/ai.ml.depends       |   1 +
+ _build/ai.mli              |   8 ++
+ _build/ai.mli.depends      |   1 +
+ _build/board.cmi           | Bin 0 -> 425 bytes
+ _build/board.cmo           | Bin 0 -> 2747 bytes
+ _build/board.ml            | 114 +++++++++++++++++++++++++
+ _build/board.ml.depends    |   1 +
+ _build/board.mli           |   9 ++
+ _build/board.mli.depends   |   1 +
+ _build/command.cmi         | Bin 0 -> 502 bytes
+ _build/command.cmo         | Bin 0 -> 525 bytes
+ _build/command.ml          |  24 ++++++
+ _build/command.ml.depends  |   1 +
+ _build/command.mli         |  16 ++++
+ _build/command.mli.depends |   1 +
+ _build/main.byte           | Bin 0 -> 240959 bytes
+ _build/main.cmi            | Bin 0 -> 434 bytes
+ _build/main.cmo            | Bin 0 -> 4449 bytes
+ _build/main.ml             | 100 ++++++++++++++++++++++
+ _build/main.ml.depends     |   1 +
+ _build/main.mli            |  13 +++
+ _build/main.mli.depends    |   1 +
+ _build/ocamlc.where        |   1 +
+ _build/state.cmi           | Bin 0 -> 784 bytes
+ _build/state.cmo           | Bin 0 -> 6321 bytes
+ _build/state.ml            | 208 +++++++++++++++++++++++++++++++++++++++++++++
+ _build/state.ml.depends    |   1 +
+ _build/state.mli           |  46 ++++++++++
+ _build/state.mli.depends   |   1 +
+ ai.ml                      |  27 ++++++
+ ai.mli                     |   8 ++
+ main.byte                  |   1 +
+ main.ml                    |  42 +++++----
+ state.ml                   |   3 +-
+ 39 files changed, 706 insertions(+), 17 deletions(-)
+
+commit f56369823d96cb7f938b02cec8835cbdaad84d34
+Merge: 0be6763 ff5f249
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Mon Nov 27 22:50:48 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit ff5f24903c14662b2575c85189adddde868acaf2
+Author: Ping Tseng <pingtseng@dhcp-mcfad-799.wifi-visitor.cit.cornell.edu>
+Date:   Mon Nov 27 22:50:37 2017 -0500
+
+    multiplayer and one player works
+
+ board.ml |  1 -
+ main.ml  | 64 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++------
+ 2 files changed, 58 insertions(+), 7 deletions(-)
+
+commit 0be6763a385957f09b1bc43cea50d805a2b7a73e
+Merge: 56f8b19 28c0644
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Mon Nov 27 21:44:03 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit 56f8b19c027b0cc419a859c252c070595e8eb6f2
+Merge: 58cadb4 5529f47
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Mon Nov 27 21:43:58 2017 -0500
+
+    edited board.ml
+
+commit 28c064403fb80d13d06cab1f2f375f37f27d4d41
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Mon Nov 27 11:41:53 2017 -0500
+
+    Fixed full board error
+
+ state.ml | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
+
+commit 14558104aea58caf44dff518b1f8a676babf5e79
+Merge: 195f95e a781d1d
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Mon Nov 27 11:40:39 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit 195f95e0f424f386916e3ba96687ed17af4abfb2
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Mon Nov 27 11:40:03 2017 -0500
+
+    Fixed full board error
+
+ board.ml | 22 +++++++++++-----------
+ state.ml | 64 ++++++++++++++++++++++++++++++++++------------------------------
+ 2 files changed, 45 insertions(+), 41 deletions(-)
+
+commit a781d1da60fe95636a5fa550de1ed8fcea0f32ce
+Author: Ping Tseng <pingtseng@dhcp-uris-219.wifi-visitor.cit.cornell.edu>
+Date:   Mon Nov 27 11:23:53 2017 -0500
+
+    open command
+
+ main.ml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 6ce352689ac60f489cd9b436ac708c11bf609276
+Author: Ping Tseng <pingtseng@dhcp-uris-219.wifi-visitor.cit.cornell.edu>
+Date:   Mon Nov 27 11:18:46 2017 -0500
+
+    remove state_test.byte so make works
+
+ state_test.byte | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 462f69213028f0e157b0c146c27dc63c50f63a08
+Author: Ping Tseng <pingtseng@dhcp-uris-219.wifi-visitor.cit.cornell.edu>
+Date:   Mon Nov 27 11:15:37 2017 -0500
+
+    fixed ?
+
+ _build/_digests            |  25 ------
+ _build/_log                |  36 --------
+ _build/board.cmi           | Bin 425 -> 0 bytes
+ _build/board.cmo           | Bin 2783 -> 0 bytes
+ _build/board.ml            | 115 -------------------------
+ _build/board.ml.depends    |   1 -
+ _build/board.mli           |   9 --
+ _build/board.mli.depends   |   1 -
+ _build/command.cmi         | Bin 502 -> 0 bytes
+ _build/command.cmo         | Bin 525 -> 0 bytes
+ _build/command.ml          |  24 ------
+ _build/command.ml.depends  |   1 -
+ _build/command.mli         |  16 ----
+ _build/command.mli.depends |   1 -
+ _build/main.byte           | Bin 238088 -> 0 bytes
+ _build/main.cmi            | Bin 434 -> 0 bytes
+ _build/main.cmo            | Bin 1375 -> 0 bytes
+ _build/main.ml             |  37 ---------
+ _build/main.ml.depends     |   1 -
+ _build/main.mli            |  13 ---
+ _build/main.mli.depends    |   1 -
+ _build/ocamlc.where        |   1 -
+ _build/state.cmi           | Bin 784 -> 0 bytes
+ _build/state.cmo           | Bin 6281 -> 0 bytes
+ _build/state.ml            | 203 ---------------------------------------------
+ _build/state.ml.depends    |   1 -
+ _build/state.mli           |  46 ----------
+ _build/state.mli.depends   |   1 -
+ main.byte                  |   1 -
+ 29 files changed, 534 deletions(-)
+
+commit f62acd103f816f4b65abc9085b86cf20f3a5d654
+Author: Ping Tseng <pingtseng@dhcp-ccc-544.wifi-visitor.cit.cornell.edu>
+Date:   Mon Nov 27 10:21:09 2017 -0500
+
+    fixed stuff, make play works now
+
+ .DS_Store                                          | Bin 8196 -> 6148 bytes
+ _build/_digests                                    |  44 ++++++++++-----------
+ _build/board.cmi                                   | Bin 430 -> 425 bytes
+ _build/board.cmo                                   | Bin 2743 -> 2783 bytes
+ _build/board.ml                                    |   3 +-
+ _build/board.mli                                   |   2 +-
+ _build/command.byte                                | Bin 229529 -> 0 bytes
+ _build/main.byte                                   | Bin 238137 -> 238088 bytes
+ _build/main.cmi                                    | Bin 434 -> 434 bytes
+ _build/main.cmo                                    | Bin 1479 -> 1375 bytes
+ _build/main.ml                                     |   6 +--
+ _build/oUnit-State test suite-vm3110-2017fa#00.log |  30 --------------
+ _build/ocamlc.where                                |   2 +-
+ _build/state.ml                                    |   2 +-
+ _build/state.mli                                   |   6 +--
+ _build/state_test.byte                             | Bin 424445 -> 0 bytes
+ _build/state_test.cmi                              | Bin 1106 -> 0 bytes
+ _build/state_test.cmo                              | Bin 1097 -> 0 bytes
+ _build/state_test.ml                               |  11 ------
+ _build/state_test.ml.depends                       |   1 -
+ board.ml                                           |   3 +-
+ board.mli                                          |   2 +-
+ command.byte                                       |   1 -
+ main.byte                                          |   2 +-
+ main.ml                                            |   6 +--
+ state.ml                                           |   2 +-
+ state.mli                                          |   6 +--
+ state_test.ml                                      |  11 ------
+ 28 files changed, 34 insertions(+), 106 deletions(-)
+
+commit 93bfa3a96c92c8a3c03ebbcc38b98540622ab3c4
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Mon Nov 27 02:32:57 2017 -0500
+
+    Edited main?
+
+ _build/_digests                                    |  14 ++---
+ _build/_log                                        |   8 +--
+ _build/command.byte                                | Bin 0 -> 229529 bytes
+ _build/main.byte                                   | Bin 237977 -> 238137 bytes
+ _build/main.cmo                                    | Bin 1295 -> 1479 bytes
+ _build/main.ml                                     |  25 +++++----
+ _build/oUnit-State test suite-vm3110-2017fa#00.log |  60 ++++++++++-----------
+ _build/state.ml                                    |  12 ++---
+ command.byte                                       |   1 +
+ main.ml                                            |  25 +++++----
+ state.ml                                           |  12 ++---
+ 11 files changed, 82 insertions(+), 75 deletions(-)
+
+commit f77b85b8d2f18cf66fb523d08d07395715b352eb
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Mon Nov 27 02:12:15 2017 -0500
+
+    Fixed directions
+
+ _build/_digests                                    |  29 +++
+ _build/_log                                        |  36 ++++
+ _build/board.cmi                                   | Bin 0 -> 430 bytes
+ _build/board.cmo                                   | Bin 0 -> 2743 bytes
+ _build/board.ml                                    | 114 ++++++++++++
+ _build/board.ml.depends                            |   1 +
+ _build/board.mli                                   |   9 +
+ _build/board.mli.depends                           |   1 +
+ _build/command.cmi                                 | Bin 0 -> 502 bytes
+ _build/command.cmo                                 | Bin 0 -> 525 bytes
+ _build/command.ml                                  |  24 +++
+ _build/command.ml.depends                          |   1 +
+ _build/command.mli                                 |  16 ++
+ _build/command.mli.depends                         |   1 +
+ _build/main.byte                                   | Bin 0 -> 237977 bytes
+ _build/main.cmi                                    | Bin 0 -> 434 bytes
+ _build/main.cmo                                    | Bin 0 -> 1295 bytes
+ _build/main.ml                                     |  38 ++++
+ _build/main.ml.depends                             |   1 +
+ _build/main.mli                                    |  13 ++
+ _build/main.mli.depends                            |   1 +
+ _build/oUnit-State test suite-vm3110-2017fa#00.log |  30 +++
+ _build/ocamlc.where                                |   1 +
+ _build/state.cmi                                   | Bin 0 -> 784 bytes
+ _build/state.cmo                                   | Bin 0 -> 6281 bytes
+ _build/state.ml                                    | 203 +++++++++++++++++++++
+ _build/state.ml.depends                            |   1 +
+ _build/state.mli                                   |  50 +++++
+ _build/state.mli.depends                           |   1 +
+ _build/state_test.byte                             | Bin 0 -> 424445 bytes
+ _build/state_test.cmi                              | Bin 0 -> 1106 bytes
+ _build/state_test.cmo                              | Bin 0 -> 1097 bytes
+ _build/state_test.ml                               |  11 ++
+ _build/state_test.ml.depends                       |   1 +
+ main.byte                                          |   1 +
+ state.ml                                           |  41 +++--
+ 36 files changed, 608 insertions(+), 17 deletions(-)
+
+commit 910f0a0f1d53127864ee196881ae9deaa943ed4e
+Author: Ping Tseng <pingtseng@dhcp-mcfad-3304.eduroam.cornell.edu>
+Date:   Mon Nov 27 00:21:59 2017 -0500
+
+    implemented some of main.ml
+
+ .DS_Store     | Bin 6148 -> 8196 bytes
+ _tags         |   2 +-
+ board.ml      |   1 -
+ board.mli     |   2 +-
+ main.ml       |  38 +++++++++++++++++++++++++++++++++++++-
+ state.ml      |   8 +++++---
+ state.mli     |   8 ++++++--
+ state_test.ml |  11 +++++++++++
+ 8 files changed, 61 insertions(+), 9 deletions(-)
+
+commit 37579d423d1bdbc09116ee81d4518d05d33e60da
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Sun Nov 26 22:58:14 2017 -0500
+
+    Finished all directions
+
+ state.ml | 63 +++++++++++++++++++++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 53 insertions(+), 10 deletions(-)
+
+commit 02bd683532a0c49dc98a5413c575e9886d329037
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sun Nov 26 21:53:40 2017 -0500
+
+    Fixed indenting
+
+ board.ml | 11 ++++-----
+ state.ml | 80 ++++++++++++++++++++++++++++++----------------------------------
+ 2 files changed, 42 insertions(+), 49 deletions(-)
+
+commit 818874ac859a0b274f7a9760b3fa13309d8fd040
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sun Nov 26 20:03:56 2017 -0500
+
+    Removed can_move
+
+ state.ml | 5 -----
+ 1 file changed, 5 deletions(-)
+
+commit e15caaf19c1dfb0eab75711a6089794648a5c714
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sun Nov 26 20:02:08 2017 -0500
+
+    Fixed update_status, update_state
+
+ state.ml | 58 +++++++++++++++-------------------------------------------
+ 1 file changed, 15 insertions(+), 43 deletions(-)
+
+commit 19d5dd21dc0ad3c592379e86f245ba51fd65e9bf
+Merge: d088425 5529f47
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sun Nov 26 20:00:51 2017 -0500
+
+    Merge branch 'master' of https://github.coecis.cornell.edu/sc2524/2048
+
+commit d088425474d303ee6238b87d1366d677faa8d839
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sun Nov 26 19:51:50 2017 -0500
+
+    Fixed update_status, update_state
+
+ state.ml  | 44 ++++++++++++++++++++++++++++++++------------
+ state.mli |  2 +-
+ 2 files changed, 33 insertions(+), 13 deletions(-)
+
+commit 58cadb4edb21a576d54620c2720259d97b755915
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Sun Nov 26 13:44:42 2017 -0500
+
+    edited board.ml
+
+ board.ml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5529f47bca98c79fa23914e53639a3fd7803db92
+Author: Ping Tseng <pingtseng@Pings-MacBook.local>
+Date:   Sun Nov 26 00:51:33 2017 -0500
+
+    fixed implementation of board to work with lists
+
+ _build/_digests              |   4 ----
+ _build/_log                  |   8 --------
+ _build/state_test.byte       | Bin 222548 -> 0 bytes
+ _build/state_test.cmi        | Bin 196 -> 0 bytes
+ _build/state_test.cmo        | Bin 180 -> 0 bytes
+ _build/state_test.ml         |   0
+ _build/state_test.ml.depends |   1 -
+ board.ml                     |   7 ++++---
+ main.ml                      |   3 ++-
+ 9 files changed, 6 insertions(+), 17 deletions(-)
+
+commit a4a57c5badf8590d1231cc1aa51102387b89fe7f
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Sat Nov 25 22:14:16 2017 -0500
+
+    Added down command
+
+ state.ml | 55 ++++++++++++++++++++++++++++++++++++++++---------------
+ 1 file changed, 40 insertions(+), 15 deletions(-)
+
+commit 1fcc24d2bdb132688d26d7873fa8374c96909692
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sat Nov 25 13:16:58 2017 -0500
+
+    Added update_status and calculate_score
+
+ state.ml | 50 ++++++++++++++++++++++++++++----------------------
+ 1 file changed, 28 insertions(+), 22 deletions(-)
+
+commit 14cb773c39001306c0ac354b26f83ab623687a06
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Fri Nov 24 22:42:37 2017 -0500
+
+    Fixed up a bit
+
+ _build/_log |  6 ++++++
+ state.ml    | 34 +++++++++++++++++++++++++++-------
+ 2 files changed, 33 insertions(+), 7 deletions(-)
+
+commit be6b53982c2821838f13a02e8d392a5fb06bb96c
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Fri Nov 24 22:22:04 2017 -0500
+
+    Up Command
+
+ _build/_digests              |   4 +++
+ _build/_log                  |   2 ++
+ _build/state_test.byte       | Bin 0 -> 222548 bytes
+ _build/state_test.cmi        | Bin 0 -> 196 bytes
+ _build/state_test.cmo        | Bin 0 -> 180 bytes
+ _build/state_test.ml         |   0
+ _build/state_test.ml.depends |   1 +
+ state.ml                     |  82 +++++++++++++++++++++++++++++++++++++++----
+ state_test.byte              |   1 +
+ 9 files changed, 84 insertions(+), 6 deletions(-)
+
+commit 6848fb3b02cec715b41e8ef4e5ba6dd616d8a1d1
+Author: Ping Tseng <pingtseng@Pings-MacBook.local>
+Date:   Thu Nov 23 23:44:46 2017 -0500
+
+    Working draw_board
+
+ board.ml | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+
+commit 9d3db6692482d4aa43a014a6a3fc7dd333e7036d
+Author: Ping Tseng <pingtseng@Pings-MacBook.local>
+Date:   Thu Nov 23 23:25:00 2017 -0500
+
+    bugs
+
+ board.ml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit c222ef90ea640027aea662c22514e694bc46c42d
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Thu Nov 23 23:08:47 2017 -0500
+
+    Added helper pick_tile_color, set color in draw_tiles, and added draw_string_in_tile helper
+
+ board.ml | 46 ++++++++++++++++++++++++++++++++++------------
+ 1 file changed, 34 insertions(+), 12 deletions(-)
+
+commit da60666138908ce20003955e0fc99738a305d110
+Author: Ping Tseng <pingtseng@Pings-MacBook.local>
+Date:   Thu Nov 23 19:48:58 2017 -0500
+
+    Helper for draw_tiles, still need to implement writing the text and changing the fill color
+
+ board.ml | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+commit 11e85c2930fc22c7893549d3752c9b1e13e4d9da
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Sat Nov 18 21:38:35 2017 -0500
+
+    AS- added generate_state, init_state
+
+ state.ml | 47 ++++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 38 insertions(+), 9 deletions(-)
+
+commit 921d2ec24188fce79b94ec6e5162b529f7c64fed
+Author: Amy Zhong <az287@cornell.edu>
+Date:   Sat Nov 18 13:02:11 2017 -0500
+
+    Added tile_color and generate_tile_color to board
+
+ board.ml | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+
+commit 1eda9e42f416b0cb5f1a7f2544f0057c84c0dcbf
+Author: Yun Ping Tseng <yt376@cornell.edu>
+Date:   Sat Nov 18 12:37:26 2017 -0500
+
+    added two new inputs of draw_board
+
+ board.mli | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+commit 5a0cb09e27c7849356af838ca49d0d79624e0bdc
+Author: Yun Ping Tseng <yt376@cornell.edu>
+Date:   Sat Nov 18 12:36:37 2017 -0500
+
+    edit
+
+ board.ml | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 5b4ed5dceddd6d680367ceaea08fa8822031717b
+Author: Yun Ping Tseng <yt376@cornell.edu>
+Date:   Sat Nov 18 12:32:59 2017 -0500
+
+    added pseudocode for helpers of draw_board
+
+ board.ml | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+commit cf946aa210f2f5b65fd802da0b2f64baa6bff987
+Author: Yun Ping Tseng <yt376@cornell.edu>
+Date:   Sat Nov 18 12:24:50 2017 -0500
+
+    Changed the position to left top
+
+ board.ml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 5eb7a336386334a665433ba56831e1c3cb27b0c8
+Author: Ping Tseng <pingtseng@dhcp-mcfad-12987.eduroam.cornell.edu>
+Date:   Thu Nov 16 21:52:20 2017 -0500
+
+    added specs to helper
+
+ board.ml | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+commit c6767d9b0cd5ad876bb476287f6e3b00863421c1
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Thu Nov 16 20:42:23 2017 -0500
+
+    Added and implemented helper draw_grid in board.ml
+
+ board.ml   | 18 +++++++++++++++++-
+ command.ml |  5 +++--
+ 2 files changed, 20 insertions(+), 3 deletions(-)
+
+commit 7f7e396e43bff8875fd7d84a92ca8d365a397508
+Author: Ping Tseng <pingtseng@dhcp-mcfad-12987.eduroam.cornell.edu>
+Date:   Wed Nov 15 21:36:58 2017 -0500
+
+    Added files and finished command.ml
+
+ .DS_Store     | Bin 0 -> 6148 bytes
+ Makefile      |  19 +++++++++++++++++
+ VERSION       |   1 +
+ _tags         |   1 +
+ board.ml      |   4 ++++
+ checkenv.sh   |  65 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ checktypes.sh |   0
+ checkzip.sh   |  50 ++++++++++++++++++++++++++++++++++++++++++++
+ command.ml    |  23 +++++++++++++++++++++
+ main.ml       |   1 +
+ state.ml      |  17 +++++++++++++++
+ state_test.ml |   0
+ 12 files changed, 181 insertions(+)
+
+commit c067e8e2421dc9d367a53a4af5dde12ab18534fe
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Wed Nov 15 17:05:51 2017 -0500
+
+    Reduced board.mli to one function, added second set of commands to command in command.mli, edited main.mli
+
+ board.mli   | 19 +++++--------------
+ command.mli | 17 ++++++++++-------
+ main.mli    | 15 ++++++++-------
+ 3 files changed, 23 insertions(+), 28 deletions(-)
+
+commit 104e553fa0e1e1f5ec42aa85c6d24c5f9116723a
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Tue Nov 14 20:39:01 2017 -0500
+
+    Changed Main.command to Command.command for update_state in state.mli
+
+ state.mli | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit c7a1e56d5c3381bfe4e930be76a579aa1d6a3f79
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Tue Nov 14 20:36:49 2017 -0500
+
+    Added 'open Command' to state.mli and main.mli
+
+ main.mli  | 1 +
+ state.mli | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 98e5ed4d6e82769cfc290a8fe19122bf5144b871
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Tue Nov 14 20:25:16 2017 -0500
+
+    Created command.mli
+
+ command.mli | 13 +++++++++++++
+ lambda-term |  1 -
+ main.mli    |  8 --------
+ 3 files changed, 13 insertions(+), 9 deletions(-)
+
+commit 11e1cc5127628d5c1239ae6775c82b4f4c20935a
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Tue Nov 14 19:40:40 2017 -0500
+
+    Changing mli
+
+ board.mli   | 17 +++++++++--------
+ lambda-term |  1 +
+ main.mli    |  8 +++++---
+ 3 files changed, 15 insertions(+), 11 deletions(-)
+
+commit 83d53bf17fb1a94cdf3c4720be588c9788b74b1b
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Tue Nov 14 19:28:10 2017 -0500
+
+    Added 'Open Graphics' to board.mli and main.mli
+
+ board.mli | 1 +
+ main.mli  | 3 ++-
+ state.mli | 1 -
+ 3 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 4fba3ccfa30463eefdebebd027a159670c4bdc07
+Author: Ping Tseng <pingtseng@dhcp-mcfad-384.wifi-visitor.cit.cornell.edu>
+Date:   Tue Nov 14 19:23:18 2017 -0500
+
+    Added function to board.mli
+
+ board.mli | 8 ++++++--
+ main.mli  | 4 ++--
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+commit 7093f358cd00d3aabe68263e3a9cad89ad9481cb
+Author: Ping Tseng <pingtseng@dhcp-rhodes-1051.eduroam.cornell.edu>
+Date:   Tue Nov 14 12:12:14 2017 -0500
+
+    added function in main.ml to parse commands and got rid of a function in board.ml
+
+ board.mli | 9 ---------
+ main.mli  | 5 +++++
+ 2 files changed, 5 insertions(+), 9 deletions(-)
+
+commit f3393d189dfcd9016aca822dcc2f6b9d2f6184f8
+Author: vagrant <vagrant@vm3110-2017fa>
+Date:   Mon Nov 13 22:32:25 2017 -0500
+
+    Edited specs for mli files
+
+ board.mli | 22 ++++++++++++----------
+ main.mli  | 10 +++++-----
+ state.mli | 55 +++++++++++++++++++++++++++++--------------------------
+ 3 files changed, 46 insertions(+), 41 deletions(-)
+
+commit 1e0a8d16fa5dc3adeb8a9b6932a367f8ae5a9afb
+Author: Anita Sharma <as2837@cornell.edu>
+Date:   Mon Nov 13 17:40:02 2017 -0500
+
+    Adding state
+
+ state.mli | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+
+commit cf33e202625cb64727bbcd496dc2b82baf475086
+Author: Ping Tseng <pingtseng@dhcp-rhodes-2263.eduroam.cornell.edu>
+Date:   Mon Nov 13 17:38:15 2017 -0500
+
+    Added main.mli
+
+ main.mli | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+commit b6807188fb8c62ca54b985fbb220f24d1e0aa4a5
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Mon Nov 13 17:36:36 2017 -0500
+
+    Edited board.mli
+
+ board.mli | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit 0b4054e74320395e04b1851ba6ddfb426e3c6b2d
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Mon Nov 13 17:24:50 2017 -0500
+
+    Added board.mli
+
+ board.mli | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+commit c3cb8c3e147630135b8710648f28c25a2c02a0c8
+Author: Stephanie Chang <sc2524@cornell.edu>
+Date:   Mon Nov 13 15:29:31 2017 -0500
+
+    Initial commit
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
